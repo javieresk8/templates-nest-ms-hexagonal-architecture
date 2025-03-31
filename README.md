@@ -97,3 +97,39 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+
+## Architecture
+📂 Estructura de Carpetas (Screaming Architecture + Hexagonal con Casos de Uso)
+├── src/
+│   ├── application/        # Casos de uso
+│   │   ├── use-cases/      # Implementación de casos de uso
+│   │   ├── dtos/           # Data Transfer Objects (DTOs)
+│   │   ├── requests/       # Requests específicos de la aplicación
+│   │   ├── responses/      # Responses de los casos de uso
+│   │   ├── services/       # Servicios de aplicación
+│   │   ├── mappers/        # Transformaciones entre capas
+│   ├── domain/             # Entidades y lógica de negocio
+│   │   ├── models/         # Modelos de dominio
+│   │   ├── repositories/   # Interfaces de repositorios
+│   │   ├── events/         # Eventos de dominio
+│   │   ├── exceptions/     # Excepciones de negocio
+│   ├── infrastructure/     # Implementaciones técnicas (ORM, HTTP, etc.)
+│   │   ├── database/       # Módulo de base de datos
+│   │   ├── repositories/   # Implementaciones de repositorios
+│   │   ├── services/       # Conexión con servicios externos
+│   │   ├── mappers/        # Transformaciones de infraestructura
+│   ├── interfaces/         # Adaptadores (Controllers, Listeners, etc.)
+│   │   ├── controllers/    # Endpoints y manejo de HTTP
+│   │   ├── listeners/      # Event Listeners
+│   │   ├── graphql/        # Resolvers de GraphQL (si aplica)
+│   │   ├── rest/           # Adaptadores REST
+│   │   ├── ws/             # Adaptadores WebSockets
+│   ├── app.module.ts       # Módulo principal
+│   ├── main.ts             # Punto de entrada
+├── test/                   # Pruebas unitarias y de integración
+├── .env                    # Variables de entorno
+├── Dockerfile              # Configuración Docker
+├── docker-compose.yml      # Orquestación con Docker Compose
+├── package.json            # Dependencias del proyecto
+├── tsconfig.json           # Configuración de TypeScript
